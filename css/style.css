@@ -602,23 +602,32 @@ h2 {
 }
 .dwc {
 	padding-bottom: 80px;
+	min-height: 250px;
 }
 .dwc-menu {
 	width: 240px;
 	float: left;
-	background: url("../img/dwc-shadow.png") 100% 50% no-repeat;
+	position: relative;
+}
+.dwc-menu:after {
+    content: "";
+    position: absolute;
+    top: -32px;
+    right: 0;
+    background: url("../img/dwc-shadow.png") no-repeat;
+    height: 272px;
+    width: 10px;
 }
 .dwc-menu ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
-.dwc-menu input[type="radio"] {
+.dwc input[type="radio"] {
 	display: none;
 }
-.dwc-menu input[type="radio"] + label {
+.dwc-menu label {
 	border: 0;
-/*	width: 240px;*/
 	text-decoration: none;
 	background-color: #32425c;
 	color: #fff;
@@ -631,10 +640,10 @@ h2 {
 	cursor: pointer;
 	
 }
-/*#dwc-btn1:checked ~ label[for="dwc-btn1"],
-#dwc-btn2:checked ~ label[for="dwc-btn2"],
-#dwc-btn3:checked ~ label[for="dwc-btn3"]*/
-.dwc-menu input[type="radio"]:checked + label
+#dwc-btn1:checked ~ .dwc-menu label[for="dwc-btn1"],
+#dwc-btn2:checked ~ .dwc-menu label[for="dwc-btn2"],
+#dwc-btn3:checked ~ .dwc-menu label[for="dwc-btn3"]
+/*.dwc input[type="radio"]:checked ~ .dwc-menu label*/
  {
 	background-color: #fff;
 	color: #293449;
@@ -643,17 +652,22 @@ h2 {
 	border-top: 1px solid #fff;
 	transition: .5s
 }
-.dwc-menu input[type="radio"]:checked + label:hover
+/*.dwc input[type="radio"]:checked ~ .dwc-menu label:hover
  {
 	background-color: #fff;
 	border-bottom: 1px solid #fff;
 	border-top: 1px solid #fff;
 	transition: .5s
-}
-.dwc-menu input[type="radio"] + label:hover {
+}*/
+.dwc input[type="radio"] + .dwc-menu label:hover {
 	background-color: #405069;
 	border-color: #405069;
 	transition: .5s
+}
+.dwc-blocks{
+	width: 500px;
+    min-height: 200px;
+    float: left;
 }
 .dwc-block {
 	display: none;
@@ -662,13 +676,13 @@ h2 {
 	margin-left: 80px;
 }
 
-#dwc-btn1:checked ~ .dwc-block { 
+#dwc-btn1:checked ~ .dwc-blocks .dwc-block:nth-child(1) { 
 	display: block;
 }
-#dwc-btn2:checked ~ .dwc-block:nth-child(2) { 
+#dwc-btn2:checked ~ .dwc-blocks .dwc-block:nth-child(2) { 
 	display: block;
 }
-#dwc-btn3:checked ~ .dwc-block:nth-child(3) { 
+#dwc-btn3:checked ~ .dwc-blocks .dwc-block:nth-child(3) { 
 	display: block;
 }
 .service-inner {
